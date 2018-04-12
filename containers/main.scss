@@ -1,0 +1,24 @@
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome.scss';
+@import 'common.scss';
+
+html, body {
+    margin: 0;
+    color: $darkgray;
+    background-color: $gray;
+}
+
+html {
+    padding: 0 2%;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: $darkblue;
+    margin-right: 0.5%;
+}
+
+a:hover, a.selected {
+    color: $orange;
+}

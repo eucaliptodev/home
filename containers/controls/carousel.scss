@@ -1,0 +1,101 @@
+@import '../common.scss';
+
+$carouselHeight: 600px;
+$carouselWidth: 900px;
+
+.carousel {
+    height: $carouselHeight;
+    .carousel-pics {
+        position: relative;
+        text-align: center;
+        height: $carouselHeight;
+        width: $carouselWidth;        
+        overflow: hidden;
+        display:inline-block;        
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: $carouselWidth;
+            opacity: 0;
+        }
+    }
+
+    .fa {
+        line-height: $carouselHeight;           
+        font-size: 50px;
+        margin: auto 10px;
+        color: $darkblue;
+        vertical-align: top;
+    }
+
+    .fa:hover {
+        color: $orange;
+    }
+}
+
+@-webkit-keyframes car-anim-in-left
+{
+    0% {
+        margin-left: $carouselWidth;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}    
+
+@-webkit-keyframes car-anim-out-left
+{
+    0% {        
+        margin-left: 0;
+    }
+    100% {        
+        margin-left: -$carouselWidth;
+    }
+}    
+
+@-webkit-keyframes car-anim-in-right
+{
+    0% {
+        margin-left: -$carouselWidth;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}    
+
+@-webkit-keyframes car-anim-out-right
+{
+    0% {        
+        margin-left: 0;
+    }
+    100% {        
+        margin-left: $carouselWidth;
+    }
+}    
+
+img.in-left {
+    -webkit-animation: car-anim-in-left 1s linear 1;
+}
+
+img.out-left { 
+    -webkit-animation: car-anim-out-left 1s linear 1;
+}
+
+img.in-right {
+    -webkit-animation: car-anim-in-right 1s linear 1;
+}
+
+img.out-right { 
+    -webkit-animation: car-anim-out-right 1s linear 1;
+}
+
+img.top {
+    z-index: 2;
+    opacity: 1 !important;
+}
+
+img.almosttop {
+    z-index: 1;
+    opacity: 1 !important;
+}
