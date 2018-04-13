@@ -17,7 +17,6 @@ $carouselWidth: 900px;
             top: 0;
             left: 0;
             width: $carouselWidth;
-            opacity: 0;
         }
     }
 
@@ -59,8 +58,11 @@ $carouselWidth: 900px;
     0% {
         margin-left: -$carouselWidth;
     }
-    100% {
+    99.999% {
         margin-left: 0%;
+    }
+    100% {
+        opacity: 0;
     }
 }    
 
@@ -69,25 +71,33 @@ $carouselWidth: 900px;
     0% {        
         margin-left: 0;
     }
-    100% {        
+    99.999% {        
         margin-left: $carouselWidth;
     }
+    100% {
+        opacity: 0;
+    }
+
 }    
 
 img.in-left {
     -webkit-animation: car-anim-in-left 1s linear 1;
+    animation-fill-mode: forwards;
 }
 
 img.out-left { 
     -webkit-animation: car-anim-out-left 1s linear 1;
+    animation-fill-mode: forwards;
 }
 
 img.in-right {
     -webkit-animation: car-anim-in-right 1s linear 1;
+    animation-fill-mode: forwards;
 }
 
 img.out-right { 
     -webkit-animation: car-anim-out-right 1s linear 1;
+    animation-fill-mode: forwards;
 }
 
 img.top {
