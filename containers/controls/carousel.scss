@@ -18,6 +18,16 @@ $carouselWidth: 900px;
             left: 0;
             width: $carouselWidth;
         }
+        .dots {
+            position:relative;
+            top: 0; 
+            z-index: 3;
+            display: inline-block;
+            .fa {
+                font-size: 30px;
+                line-height: 50px;
+            }
+        }
     }
 
     .fa {
@@ -109,3 +119,4 @@ img.almosttop {
     z-index: 1;
     opacity: 1 !important;
 }
+

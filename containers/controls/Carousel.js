@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FontAwesome from 'react-fontawesome';
+import Dots from './Dots'
 import './carousel.scss';
 
 export default class Carousel extends Component {
@@ -9,6 +10,7 @@ export default class Carousel extends Component {
 
         this.handleLeft = this.handleLeft.bind(this);
         this.handleRight = this.handleRight.bind(this);
+        this.handleSelect = this.handleSelect.bind(this);
     }
 
     
@@ -24,6 +26,10 @@ export default class Carousel extends Component {
         }
     }
 
+    handleSelect(selected) {
+        this.setState((previous, props) => ({pos: selected, direction: 0}));
+    }
+
     render() {    
         let pos = this.state.pos,
             size = this.state.max,
@@ -34,10 +40,14 @@ export default class Carousel extends Component {
             if (pos == -1 && i == 0) {
                 cls = 'top';
             }
-            if (pos >-1 && i == pos) {
+            if (pos == i && dir == 0) {
+                cls = 'top';
+            }
+
+            if (pos >-1 && i == pos && dir != 0) {
                 cls = "top in" + suffix
             }
-            if (pos >-1 && i == ((pos - dir + size)%size)) {
+            if (pos >-1 && i == ((pos - dir + size)%size) && dir != 0) {
                 cls = "almosttop out" + suffix;
             }
             return <img className={cls} src={pic}/>
@@ -46,9 +56,11 @@ export default class Carousel extends Component {
         return <div className="carousel">
             <FontAwesome name="caret-left" onClick={this.handleLeft}/>
             <div className="carousel-pics">            
-            {images}                
+            {images}
+            <Dots count={this.props.pictures.length} selected={Math.max(this.state.pos, 0)} onSelect={this.handleSelect}/>                
             </div>
             <FontAwesome name="caret-right" onClick={this.handleRight}/>
+            
         </div>
     }
 }
